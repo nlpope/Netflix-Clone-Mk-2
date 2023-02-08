@@ -62,6 +62,9 @@
 		40879EB2298D3CB0000AF314 /* Netflix Clone Mk 2 */ = {
 			isa = PBXGroup;
 			children = (
+				40879ED5299413D9000AF314 /* Models */,
+				40879ED329941375000AF314 /* Views */,
+				40879ED429941381000AF314 /* ViewModels */,
 				40879EC72990513E000AF314 /* Controllers */,
 				40879EB3298D3CB0000AF314 /* AppDelegate.swift */,
 				40879EB5298D3CB0000AF314 /* SceneDelegate.swift */,
@@ -98,6 +101,27 @@
 			children = (
 			);
 			path = General;
+			sourceTree = "<group>";
+		};
+		40879ED329941375000AF314 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		40879ED429941381000AF314 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		40879ED5299413D9000AF314 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
