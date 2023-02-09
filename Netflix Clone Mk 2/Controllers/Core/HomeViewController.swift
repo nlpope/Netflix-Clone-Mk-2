@@ -6,6 +6,7 @@
 //
 //  first view that shows from boot
 //  this is a cocoa touch class
+//  studying MVC VS MVVM
 
 import UIKit
 
