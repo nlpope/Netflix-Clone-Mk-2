@@ -16,7 +16,8 @@ class CollectionViewTableViewCell: UITableViewCell {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
+        collectionView.register(CollectionViewTableViewCell.self, forCellWithReuseIdentifier: "cell")
+
         return collectionView
     }()
     
