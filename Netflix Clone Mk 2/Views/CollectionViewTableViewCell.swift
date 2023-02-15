@@ -11,12 +11,12 @@ class CollectionViewTableViewCell: UITableViewCell {
 
     static let identifier = "CollectionViewTableViewCell"
     
-    private let collectionView: UICollectionView = {
-        
+    private let collectionViewz: UICollectionView = {
+
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(CollectionViewTableViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
 
         return collectionView
     }()
@@ -24,6 +24,10 @@ class CollectionViewTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .systemPink
+        contentView.addSubview(collectionViewz)
+        
+        collectionViewz.delegate = self
+        collectionViewz.dataSource = self
     }
     
     //i dont get this line
@@ -31,4 +35,19 @@ class CollectionViewTableViewCell: UITableViewCell {
         fatalError()
     }
 
+}
+
+extension CollectionViewTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
+       
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.backgroundColor = .green
+        return cell
+    }
+    
+    
 }
