@@ -30,6 +30,11 @@ class CollectionViewTableViewCell: UITableViewCell {
         collectionViewz.dataSource = self
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        collectionViewz.frame = contentView.bounds
+    }
+    
     //i dont get this line
     required init?(coder: NSCoder) {
         fatalError()
