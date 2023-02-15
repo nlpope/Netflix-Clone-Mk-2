@@ -14,6 +14,7 @@ class CollectionViewTableViewCell: UITableViewCell {
     private let collectionViewz: UICollectionView = {
 
         let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 140, height: 200)
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -44,6 +45,7 @@ class CollectionViewTableViewCell: UITableViewCell {
 
 extension CollectionViewTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
        
+    //setting how many cells/boxes (lined horizontally) in each collection view per row
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
