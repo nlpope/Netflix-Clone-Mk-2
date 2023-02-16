@@ -20,6 +20,12 @@ class HeroHeaderUIView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addSubview(heroImageView)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        heroImageView.frame = bounds
     }
     
     required init?(coder: NSCoder) {
