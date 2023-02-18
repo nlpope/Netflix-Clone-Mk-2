@@ -14,6 +14,7 @@ class HeroHeaderUIView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true
+        imageView.image = UIImage(named: "heroImage")
         return imageView
 
     }()
