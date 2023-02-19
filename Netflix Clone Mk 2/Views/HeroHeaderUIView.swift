@@ -25,6 +25,8 @@ class HeroHeaderUIView: UIView {
             UIColor.clear.cgColor,
             UIColor.systemBackground.cgColor
         ]
+        gradientLayer.frame = bounds
+        // guess we dont need 'CGRect(x: 0, y: 0, width: bounds.width, height: 450)' for the bounds being defined in HomeVC
         layer.addSublayer(gradientLayer)
     }
     
