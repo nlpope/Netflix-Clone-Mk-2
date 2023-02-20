@@ -23,9 +23,18 @@ class HeroHeaderUIView: UIView {
        
         let button = UIButton()
         button.setTitle("Play", for: .normal)
-        button.layer.borderColor = UIColor.systemBackground.cgColor
+        button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
         button.translatesAutoresizingMaskIntoConstraints = false //this is so we can set up our own constraints here
+        return button
+    }()
+    
+    private let downloadButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Download", for: .normal)
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -43,8 +52,29 @@ class HeroHeaderUIView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(heroImageView)
+        addGradient() // cool, goes in order so the play button will appear darkened if layed out before the gradient
         addSubview(playButton)
-        addGradient()
+        addSubview(downloadButton)
+        applyConstraints()
+
+    }
+    
+    private func applyConstraints() {
+        let playButtonConstraints = [
+            //leadingAnchor used over leftAnchor to more easily scale intl (right to left langs like Arabic
+            playButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 90),
+            playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
+            playButton.widthAnchor.constraint(equalToConstant: 100) //changes the padding inside the button
+        ]
+        
+        let downloadButtonConstraints = [
+            downloadButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -90),
+            downloadButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
+            downloadButton.widthAnchor.constraint(equalToConstant: 100)
+        ]
+        
+        NSLayoutConstraint.activate(playButtonConstraints)
+        NSLayoutConstraint.activate(downloadButtonConstraints)
 
     }
     
