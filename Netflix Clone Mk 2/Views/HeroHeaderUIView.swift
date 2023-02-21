@@ -26,6 +26,7 @@ class HeroHeaderUIView: UIView {
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
         button.translatesAutoresizingMaskIntoConstraints = false //this is so we can set up our own constraints here
+        button.layer.cornerRadius = 5
         return button
     }()
     
@@ -35,6 +36,7 @@ class HeroHeaderUIView: UIView {
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 5
         return button
     }()
     
@@ -56,7 +58,10 @@ class HeroHeaderUIView: UIView {
         addSubview(playButton)
         addSubview(downloadButton)
         applyConstraints()
-
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
     }
     
     private func applyConstraints() {
@@ -81,10 +86,6 @@ class HeroHeaderUIView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         heroImageView.frame = bounds
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError()
     }
 
 }
