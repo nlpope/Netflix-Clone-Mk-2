@@ -38,6 +38,7 @@ class HomeViewController: UIViewController {
     private func configureNavbar() {
         var image = UIImage(named: "netflixLogo")
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
+        navigationItem.leftBarButtonItem?.setTitlePositionAdjustment(UIOffset(horizontal: -16, vertical: 0), for: UIBarMetrics)
     }
     
     override func viewDidLayoutSubviews() {
