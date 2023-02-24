@@ -39,9 +39,25 @@ class HomeViewController: UIViewController {
         var netflixImage = UIImage(named: "netflixLogo")
         let netflixButton = UIButton()
         netflixButton.setBackgroundImage(netflixImage, for: .normal)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: netflixImage, style: .done, target: self, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: netflixButton)
+        navigationItem.leftBarButtonItem?.customView?.intrinsicContentSize
         //UIBarButtonItem(image: image, style: .done, target: self, action: nil)
     }
+    
+    /**
+     private func configureNavbar() {
+         var buttonIcon = UIImage(named: "netflixLogo")
+         buttonIcon = buttonIcon?.withRenderingMode(.alwaysOriginal)
+         navigationItem.leftBarButtonItem = UIBarButtonItem(image: buttonIcon, style: .done, target: self, action: nil)
+         
+         navigationItem.rightBarButtonItems = [
+             UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
+             UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
+         ]
+         navigationController?.navigationBar.tintColor = .white
+     }
+     
+     */
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
