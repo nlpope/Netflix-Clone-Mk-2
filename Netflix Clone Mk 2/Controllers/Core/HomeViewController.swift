@@ -37,14 +37,27 @@ class HomeViewController: UIViewController {
     
     private func configureNavbar() {
         var netflixImage = UIImage(named: "netflixLogo")
-        let netflixButton = UIButton()
-        netflixButton.setBackgroundImage(netflixImage, for: .normal)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: netflixButton)
-        navigationItem.leftBarButtonItem?.customView?.intrinsicContentSize
-        //UIBarButtonItem(image: image, style: .done, target: self, action: nil)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: netflixImage, style: .done, target: self, action: nil)
+        
     }
     
     /**
+     from stack overflow
+     
+     let googleImage  = UIImage(named: "google")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal).resizeTo(size: CGSize(width: 25, height: 25))
+     let googleButton = UIButton()
+     googleButton.setBackgroundImage(googleImage, for: .normal)
+     googleButton.addTarget(self, action: #selector(googleButtonTapped), for: .touchUpInside)
+     let googleBarButton = UIBarButtonItem(customView: googleButton)
+     
+     + ...
+     .resizableImage(withCapInsets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)) - rplaces .resize(..)
+     */
+    
+    /**
+     original code from Mk 1
+     
      private func configureNavbar() {
          var buttonIcon = UIImage(named: "netflixLogo")
          buttonIcon = buttonIcon?.withRenderingMode(.alwaysOriginal)
