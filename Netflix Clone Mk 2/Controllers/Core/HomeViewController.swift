@@ -28,49 +28,28 @@ class HomeViewController: UIViewController {
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
         
-        configureNavbar()
+        configureNavBar()
         
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 500))
         homeFeedTable.tableHeaderView = headerView
         //UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
     }
     
-    private func configureNavbar() {
-        var netflixImage = UIImage(named: "netflixLogo")
+    //CREATE A UIBARBUTTONITEM W A CUSTOM VIEW (TO ADJUST THE SCALE & ALIGNMENT)
+    private func configureNavBar() {
+        let netflixBtn = UIButton(type: .custom) // a custom UIButton [of type UIView]
+        netflixBtn.setImage(UIImage(named: "netflixLogo"), for: .normal) //put an image in that custom button/view
+        //netflixBtn.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20) //OG stackOverflow code - unsure if this line is necessary
+
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: netflixImage, style: .done, target: self, action: nil)
-        
+        let leftMenuItem = UIBarButtonItem(customView: netflixBtn)
+        //now for the key component of this method - width + height constraints
+        let currWidth = leftMenuItem.customView?.widthAnchor.constraint(equalToConstant: 35)
+        currWidth?.isActive = true
+        let currHeight = leftMenuItem.customView?.heightAnchor.constraint(equalToConstant: 35)
+        currHeight?.isActive = true
+        self.navigationItem.leftBarButtonItem = leftMenuItem //of type UIBarButtonItem (w a custom view)
     }
-    
-    /**
-     from stack overflow
-     
-     let googleImage  = UIImage(named: "google")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal).resizeTo(size: CGSize(width: 25, height: 25))
-     let googleButton = UIButton()
-     googleButton.setBackgroundImage(googleImage, for: .normal)
-     googleButton.addTarget(self, action: #selector(googleButtonTapped), for: .touchUpInside)
-     let googleBarButton = UIBarButtonItem(customView: googleButton)
-     
-     + ...
-     .resizableImage(withCapInsets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)) - rplaces .resize(..)
-     */
-    
-    /**
-     original code from Mk 1
-     
-     private func configureNavbar() {
-         var buttonIcon = UIImage(named: "netflixLogo")
-         buttonIcon = buttonIcon?.withRenderingMode(.alwaysOriginal)
-         navigationItem.leftBarButtonItem = UIBarButtonItem(image: buttonIcon, style: .done, target: self, action: nil)
-         
-         navigationItem.rightBarButtonItems = [
-             UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
-             UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
-         ]
-         navigationController?.navigationBar.tintColor = .white
-     }
-     
-     */
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -78,6 +57,8 @@ class HomeViewController: UIViewController {
     }
 
 }
+
+//MARK: DELEGATE & DATASOURCE METHODS
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
