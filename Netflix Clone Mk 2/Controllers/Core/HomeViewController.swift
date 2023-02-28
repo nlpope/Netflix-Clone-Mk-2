@@ -42,13 +42,13 @@ class HomeViewController: UIViewController {
         //netflixBtn.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20) //OG stackOverflow code - unsure if this line is necessary
 
         
-        let leftMenuItem = UIBarButtonItem(customView: netflixBtn)
+        let barButtonItem = UIBarButtonItem(customView: netflixBtn)
         //now for the key component of this method - width + height constraints
-        let currWidth = leftMenuItem.customView?.widthAnchor.constraint(equalToConstant: 35)
+        let currWidth = barButtonItem.customView?.widthAnchor.constraint(equalToConstant: 35)
         currWidth?.isActive = true
-        let currHeight = leftMenuItem.customView?.heightAnchor.constraint(equalToConstant: 35)
+        let currHeight = barButtonItem.customView?.heightAnchor.constraint(equalToConstant: 35)
         currHeight?.isActive = true
-        self.navigationItem.leftBarButtonItem = leftMenuItem //of type UIBarButtonItem (w a custom view)
+        self.navigationItem.leftBarButtonItem = barButtonItem //of type UIBarButtonItem (w a custom view)
     }
     
     override func viewDidLayoutSubviews() {
