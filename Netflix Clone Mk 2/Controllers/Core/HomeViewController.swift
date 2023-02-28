@@ -39,8 +39,6 @@ class HomeViewController: UIViewController {
     private func configureNavBar() {
         let netflixBtn = UIButton(type: .custom) // a custom UIButton [of type UIView]
         netflixBtn.setImage(UIImage(named: "netflixLogo"), for: .normal) //put an image in that custom button/view
-        //netflixBtn.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20) //OG stackOverflow code - unsure if this line is necessary
-
         
         let barButtonItem = UIBarButtonItem(customView: netflixBtn)
         //now for the key component of this method - width + height constraints
@@ -48,7 +46,13 @@ class HomeViewController: UIViewController {
         currWidth?.isActive = true
         let currHeight = barButtonItem.customView?.heightAnchor.constraint(equalToConstant: 35)
         currHeight?.isActive = true
-        self.navigationItem.leftBarButtonItem = barButtonItem //of type UIBarButtonItem (w a custom view)
+        
+        navigationItem.leftBarButtonItem = barButtonItem //of type UIBarButtonItem (w a custom view)
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
+            UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil),
+
+        ]
     }
     
     override func viewDidLayoutSubviews() {
