@@ -103,6 +103,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 //    }
     
     //connected/talks to tableView(titleForHeaderInSection)
+    //reviewing the below line by line 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
         header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
