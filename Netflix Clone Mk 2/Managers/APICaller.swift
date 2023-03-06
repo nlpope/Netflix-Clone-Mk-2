@@ -13,4 +13,8 @@ struct Constants {
 
 class APICaller {
     static let shared = APICaller() //shared instance made so we can call all the below methods later
+    
+    func getTrendingMovies(completion: @escaping (String) -> Void) {
+        
+    }
 }
