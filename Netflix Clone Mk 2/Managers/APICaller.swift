@@ -20,4 +20,4 @@ class APICaller {
 }
 
 //PAUSE: REVIEWING CLOSURES/COMPLETION HANDLERS
-//-> researching funcs as return types
+//-> researching strong reference cycles for closures
