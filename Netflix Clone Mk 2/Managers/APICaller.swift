@@ -17,7 +17,8 @@ class APICaller {
     func getTrendingMovies(completion: @escaping (String) -> Void) {
         
     }
+    
 }
 
 //PAUSE: REVIEWING CLOSURES/COMPLETION HANDLERS
-//-> working practice problems for strong reference cycles for closures
+//-> Working practice problems for strong reference cycles for closures
