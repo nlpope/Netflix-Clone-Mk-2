@@ -21,4 +21,4 @@ class APICaller {
 }
 
 //PAUSE: REVIEWING CLOSURES/COMPLETION HANDLERS
-//-> Working practice problems for strong reference cycles for closures
+//-> Working more practice problems for strong reference cycles for closures before moving on to completion handlers
