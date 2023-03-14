@@ -17,9 +17,15 @@ class APICaller {
     
     func getTrendingMovies(completion: @escaping (String) -> Void) {
         guard let url = URL(string: "\(Constants.baseURL)/3/movie/550?api_key=\(Constants.API_KEY)") else {return}
-        let task = URLsession.shared.dataTask(with: url) { Data, _, error in
-            <#code#>
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data, error == nil else {return}
+            do {
+                let results = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+            } catch {
+                print(error.localizedDescription)
+            }
         }
+        task.resume()
     }
     
 }
