@@ -32,3 +32,4 @@ class APICaller {
 
 //PAUSE: REVIEWING CLOSURES/COMPLETION HANDLERS
 //-> Working more practice problems for strong reference cycles for closures before moving on to completion handlers
+//-> studying weak and unowned self captures
