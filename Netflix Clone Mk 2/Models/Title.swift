@@ -12,6 +12,7 @@ struct TrendingMoviesResponse {
     let results: [Title]
 }
 
+//a singlr item in the above array
 struct Title: Codable {
     let id: Int
     let media_type: String?
