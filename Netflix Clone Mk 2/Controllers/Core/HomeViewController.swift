@@ -132,4 +132,3 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-//Done reviewing completion handlers moving forward w Mk 2 @ noon
