@@ -24,3 +24,6 @@ struct Title: Codable {
     let release_date: String?
     let vote_average: Double
 }
+
+//pausing to review HomeVC netflix button solve & to add Models > Title notes to free mind
+
