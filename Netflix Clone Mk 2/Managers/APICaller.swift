@@ -20,10 +20,14 @@ class APICaller {
         let task = URLSession.shared.dataTask(with: url) { dataReceived, _, error in
             guard let data = dataReceived, error == nil else {return}
             do {
-                let results = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                let decoder = JSONDecoder()
+                //datReceived is optional. the above guard lets us use it below no problem (accts for nil)
+                //TrendingM....self where a trailing ".self" represents the Type of TrendingMoviesResponse
+                //1:32:53
+                let results = try decoder.decode(TrendingMoviesResponse.self, from: data)
                 print(results)
             } catch {
-                print(error.localizedDescription)
+                print(error)
             }
         }
         task.resume()
@@ -31,4 +35,5 @@ class APICaller {
     
 }
 
-//Updating freemind notes to catch up to current place in tutorial time code
+//Replacing the JSONSerialization to JSONDecoder (which does not throw an error?
+//next: reviewing URLSession documentation

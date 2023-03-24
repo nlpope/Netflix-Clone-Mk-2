@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct TrendingMoviesResponse {
+struct TrendingMoviesResponse: Codable {
     //creating a structure for resulting data from URL session to be dumped in and used
-    let results: [Title]
+    let results: [Title]?
 }
 
 //a singlr item in the above array
