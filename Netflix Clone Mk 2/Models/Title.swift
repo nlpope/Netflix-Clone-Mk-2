@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct TrendingMoviesResponse: Codable {
+struct TrendingTitleResponse: Codable {
     //creating a structure for resulting data from URL session to be dumped in and used
-    let results: [Title]?
+    let results: [Title]
 }
 
 //a singlr item in the above array
@@ -20,9 +20,9 @@ struct Title: Codable {
     let original_title: String?
     let poster_path: String?
     let overview: String?
+    let vote_count: Int
     let release_date: String?
     let vote_average: Double
-    let vote_count: Int
 }
 
 

@@ -64,6 +64,7 @@ class HomeViewController: UIViewController {
         homeFeedTable.frame = view.bounds
     }
     
+    //1:35:52
     private func getTrendingMovies() {
         APICaller.shared.getTrendingMovies { _ in
             
