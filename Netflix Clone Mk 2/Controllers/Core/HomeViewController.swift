@@ -66,8 +66,9 @@ class HomeViewController: UIViewController {
     
     //1:35:52
     private func getTrendingMovies() {
-        APICaller.shared.getTrendingMovies { _ in
-            
+        print("get trending... func called from homeVC")
+        APICaller.shared.getTrendingMovies { response in
+           print(response)
         }
     }
 
