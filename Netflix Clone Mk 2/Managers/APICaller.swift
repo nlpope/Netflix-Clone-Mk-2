@@ -16,12 +16,9 @@ class APICaller {
     static let shared = APICaller() //shared instance made so we can call all the below methods later
     
     func getTrendingMovies(completion: @escaping (String) -> Void) {
-        print("getTrending reached via APICaller")
-        
         guard let url = URL(string: "\(Constants.baseURL)/3/movie/550?api_key=\(Constants.API_KEY)") else {return}
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { dataReceived, _, error in
             guard let data = dataReceived, error == nil else {return}
-            print("data type \(data)")
             
             do {
                 let decoder = JSONDecoder()

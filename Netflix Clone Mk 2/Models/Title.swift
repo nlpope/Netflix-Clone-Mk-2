@@ -9,7 +9,7 @@ import Foundation
 
 struct TrendingTitleResponse: Codable {
     //creating a structure for resulting data from URL session to be dumped in and used
-    let results: [Title]
+    let resultszz: [Title]
 }
 
 //a single item in the above array
@@ -25,4 +25,4 @@ struct Title: Codable {
     let vote_average: Double
 }
 
-
+//https://api.themoviedb.org/3/movie/550?api_key=a33493c4a470b7abe6133ac90dfaed66
