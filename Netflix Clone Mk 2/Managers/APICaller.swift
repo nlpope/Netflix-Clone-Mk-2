@@ -19,15 +19,15 @@ class APICaller {
         guard let url = URL(string: "\(Constants.baseURL)/3/movie/550?api_key=\(Constants.API_KEY)") else {return}
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { dataReceived, _, error in
             guard let data = dataReceived, error == nil else {return}
+            print(data)
             
             do {
                 let decoder = JSONDecoder()
-                //datReceived is optional. the above guard lets us use it below no problem (accts for nil)
-                //TrendingM....self where a trailing ".self" represents the Type of TrendingMoviesResponse
                 
                 //gotcha! error somewhere in this line
                 let results: TrendingTitleResponse = try decoder.decode(TrendingTitleResponse.self, from: data)
-                completion("response egualez: \(results)")
+                print(results.resultszz)
+//                completion("response egualez: \(results)")
             } catch {
                 print("your error brought to you by \(error)")
             }
