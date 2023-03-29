@@ -8,12 +8,15 @@
 import Foundation
 
 struct TrendingTitleResponse: Codable {
+    private enum CodingKeys: String, CodingKey {case }
+
     //creating a structure for resulting data from URL session to be dumped in and used
     let resultszz: [Title]
 }
 
 //a single item in the above array
 struct Title: Codable {
+        
     let id: Int
     let media_type: String?
     let original_name: String?
@@ -24,5 +27,6 @@ struct Title: Codable {
     let release_date: String?
     let vote_average: Double
 }
+
 
 //https://api.themoviedb.org/3/movie/550?api_key=a33493c4a470b7abe6133ac90dfaed66
