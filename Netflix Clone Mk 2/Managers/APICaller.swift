@@ -27,7 +27,7 @@ class APICaller {
             
                 //gotcha! error somewhere in this line
                 let results: TrendingTitleResponse = try decoder.decode(TrendingTitleResponse.self, from: data)
-                print("response egualez: \(results)")
+                completion("response egualez: \(results)")
             } catch {
                 print("your error brought to you by \(error)")
             }
