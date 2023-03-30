@@ -45,7 +45,7 @@ class HomeViewController: UIViewController {
         netflixBtn.setImage(UIImage(named: "netflixLogo"), for: .normal) //put an image in that custom button/view
         
         let barButtonItem = UIBarButtonItem(customView: netflixBtn)
-        //now for the key component of this method - width + height constraints
+        //now for the key component of this solution: width + height constraints
         let currWidth = barButtonItem.customView?.widthAnchor.constraint(equalToConstant: 35)
         currWidth?.isActive = true
         let currHeight = barButtonItem.customView?.heightAnchor.constraint(equalToConstant: 35)
@@ -64,11 +64,10 @@ class HomeViewController: UIViewController {
         homeFeedTable.frame = view.bounds
     }
     
-    //1:35:52
     private func getTrendingMovies() {
         print("get trending... func called from homeVC")
         APICaller.shared.getTrendingMovies { response in
-            print(response)
+            print("response egualezzz: \(response)")
             
         }
     }

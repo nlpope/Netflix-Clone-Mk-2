@@ -8,9 +8,7 @@
 import Foundation
 
 struct TrendingTitleResponse: Codable {
-//    private enum CodingKeys: String, CodingKey {case }
-
-    //creating a structure for resulting data from URL session to be dumped in and used
+//this wouldnt work if "results" went by any other name - matches url request > dataReceived
     let results: [Title]
 }
 
@@ -29,4 +27,4 @@ struct Title: Codable {
 }
 
 
-//https://api.themoviedb.org/3/movie/550?api_key=a33493c4a470b7abe6133ac90dfaed66
+//https://api.themoviedb.org/3/trending/all/day?api_key=a33493c4a470b7abe6133ac90dfaed66
