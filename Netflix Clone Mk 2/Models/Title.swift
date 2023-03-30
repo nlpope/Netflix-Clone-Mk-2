@@ -8,7 +8,7 @@
 import Foundation
 
 struct TrendingTitleResponse: Codable {
-    private enum CodingKeys: String, CodingKey {case }
+//    private enum CodingKeys: String, CodingKey {case }
 
     //creating a structure for resulting data from URL session to be dumped in and used
     let resultszz: [Title]

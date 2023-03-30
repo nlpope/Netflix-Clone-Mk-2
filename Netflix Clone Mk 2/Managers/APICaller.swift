@@ -17,16 +17,16 @@ class APICaller {
     
     func getTrendingMovies(completion: @escaping (String) -> Void) {
         guard let url = URL(string: "\(Constants.baseURL)/3/movie/550?api_key=\(Constants.API_KEY)") else {return}
+        
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { dataReceived, _, error in
             guard let data = dataReceived, error == nil else {return}
-            print(data)
-            
             do {
-                let decoder = JSONDecoder()
-                
+                let results = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                print(results)
+//                let decoder = JSONDecoder()
+            
                 //gotcha! error somewhere in this line
-                let results: TrendingTitleResponse = try decoder.decode(TrendingTitleResponse.self, from: data)
-                print(results.resultszz)
+//                let results: TrendingTitleResponse = try decoder.decode(TrendingTitleResponse.self, from: data)
 //                completion("response egualez: \(results)")
             } catch {
                 print("your error brought to you by \(error)")
