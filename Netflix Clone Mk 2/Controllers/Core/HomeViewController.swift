@@ -65,7 +65,6 @@ class HomeViewController: UIViewController {
     }
     
     private func getTrendingMovies() {
-        print("get trending... func called from homeVC")
         APICaller.shared.getTrendingMovies { response in
             print("response egualezzz: \(response)")
             

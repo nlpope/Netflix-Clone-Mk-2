@@ -28,7 +28,7 @@ class APICaller {
             do {
                 let decoder = JSONDecoder()
                 let results: TrendingTitleResponse = try decoder.decode(TrendingTitleResponse.self, from: data)
-                completion("\(results.results[0].original_title)")
+
             } catch {
                 print("your error brought to you by \(error)")
             }
