@@ -12,9 +12,8 @@ struct Constants {
     static let baseURL = "https://api.themoviedb.org"
 }
 
-enum APIError: Error, CaseIterable {
+enum APIError: Error {
     case failedToGetData, failedToSetData
-    //pausing to research enums
 }
 
 
@@ -23,10 +22,7 @@ class APICaller {
     static let shared = APICaller() //shared instance made so we can call all the below methods later
     
     func getTrendingMovies(completion: @escaping (Result<[Title], Error>) -> Void) {
-        for errs in APIError.allCases {
-            print("\(errs)")
-        }
-        
+                
         guard let url = URL(string: "\(Constants.baseURL)/3/trending/all/day?api_key=\(Constants.API_KEY)") else {return}
         
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { dataReceived, _, error in
@@ -35,8 +31,11 @@ class APICaller {
             do {
                 let decoder = JSONDecoder()
                 let results: TrendingTitleResponse = try decoder.decode(TrendingTitleResponse.self, from: data)
+                completion(.success(results.results))
+                //can I print this to test?
 
             } catch {
+                completion(.failure(error))
                 print("your error brought to you by \(error)")
             }
         }
