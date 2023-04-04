@@ -65,9 +65,13 @@ class HomeViewController: UIViewController {
     }
     
     private func getTrendingMovies() {
-        APICaller.shared.getTrendingMovies { response in
-            print("response egualezzz: \(response)")
-            
+        APICaller.shared.getTrendingMovies { results in //holds the upper lvl ".success" & ".failure" values
+            switch results {
+            case .success(let titles): //titles: TrendingMovieResponse.results within ".success" value
+                print(titles)
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 
