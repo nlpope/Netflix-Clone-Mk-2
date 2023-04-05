@@ -31,11 +31,10 @@ class APICaller {
             do {
                 let decoder = JSONDecoder()
                 let results: TrendingTitleResponse = try decoder.decode(TrendingTitleResponse.self, from: data)
-                completion(.success(results.results)) //.success takes value of success parameter
+                completion(.success(results.results)) //.success takes value of success parameter into HomeVC
 
             } catch {
                 completion(.failure(error))
-                print("your error brought to you by \(error)")
             }
         }
         task.resume()
