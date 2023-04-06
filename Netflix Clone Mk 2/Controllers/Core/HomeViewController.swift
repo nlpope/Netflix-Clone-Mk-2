@@ -13,7 +13,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    let sectionTitles: [String] = ["Trending Movies", "Popular", "Trending Tv", "Upcoming Movies", "Top rated"]
+    let sectionTitles: [String] = ["Trending Movies", "Trending Tv", "Popular", "Upcoming Movies", "Top rated"]
     
     //this is a subview - the tableview houses collectionView cells
     private let homeFeedTable: UITableView = {
@@ -116,8 +116,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 //    }
     
     //connected/talks to tableView(titleForHeaderInSection)
-    //reviewing the below line by line 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
         guard let header = view as? UITableViewHeaderFooterView else {return}
         header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20,
@@ -125,7 +125,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                                          width: 100,
                                          height: header.bounds.height)
         header.textLabel?.textColor = .white
-        header.textLabel?.text = header.textLabel?.text?.lowercased()
+        header.textLabel?.text = header.textLabel?.text?.capitalizeFirstLetter()
+        
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -7,6 +7,9 @@
 
 import Foundation
 
-extension: String {
-    
+//this is actually really cool. You can add functions to type
+extension String {
+    func capitalizeFirstLetter() -> String {
+        return self.prefix(1).uppercased() + self.lowercased().dropFirst()
+    }
 }
