@@ -36,7 +36,7 @@ class HomeViewController: UIViewController {
         homeFeedTable.tableHeaderView = headerView
         //UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         
-        getTrendingMovies()
+        getTrendingTvs()
     }
     
     //CREATE A UIBARBUTTONITEM W A CUSTOM VIEW (TO ADJUST THE SCALE & ALIGNMENT)
@@ -67,7 +67,18 @@ class HomeViewController: UIViewController {
     private func getTrendingMovies() {
         APICaller.shared.getTrendingMovies { results in //holds the upper lvl ".success" & ".failure" values
             switch results {
-            case .success(let titles): //titles: TrendingMovieResponse.results within ".success" value
+            case .success(let resultsCopy): //titles: TrendingMovieResponse.results within ".success" value
+                print(resultsCopy)
+            case .failure(let resultsCopy):
+                print(resultsCopy)
+            }
+        }
+    }
+    
+    private func getTrendingTvs() {
+        APICaller.shared.getTrendingTVs { results in
+            switch results {
+            case .success(let titles):
                 print(titles)
             case .failure(let error):
                 print(error)

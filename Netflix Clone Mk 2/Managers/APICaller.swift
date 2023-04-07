@@ -49,11 +49,12 @@ class APICaller {
             do {
                 let decoder = JSONDecoder()
                 let results = try decoder.decode([String].self, from: data)
-                completion()
+                completion(.success(results))
             } catch {
                 completion(.failure(error))
             }
         }
+        task.resume()
     }
     
 }
