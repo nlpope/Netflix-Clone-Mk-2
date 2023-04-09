@@ -28,6 +28,7 @@ class APICaller {
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { dataReceived, _, error in
             
             guard let data = dataReceived, error == nil else {return}
+            
             do {
                 let decoder = JSONDecoder()
                 let results: TrendingTitleResponse = try decoder.decode(TrendingTitleResponse.self, from: data)
@@ -47,9 +48,8 @@ class APICaller {
             guard let data = dataReceived, error == nil else {return}
             
             do {
-                let decoder = JSONDecoder()
-                let results = try decoder.decode([String].self, from: data)
-                completion(.success(results))
+                let results = try JSONSerialization.jsonObject(with: data)
+                print(results)
             } catch {
                 completion(.failure(error))
             }
