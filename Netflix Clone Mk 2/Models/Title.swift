@@ -14,8 +14,12 @@ struct TrendingTitleResponse: Codable {
 
 //a single item in the above array
 struct Title: Codable {
+    
+    enum CodingKeys: String, CodingKey {
+        case identifier = "id"
+    }
         
-    let id: Int
+    let identifier: Int
     let media_type: String?
     let original_name: String?
     let original_title: String?
