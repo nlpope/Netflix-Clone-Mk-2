@@ -15,6 +15,7 @@ struct TrendingTitleResponse: Codable {
 //a single item in the above array
 struct Title: Codable {
     
+    //CodingKey = type that can be used as a key for encoding and decoding
     enum CodingKeys: String, CodingKey {
         case identifier = "id"
     }
@@ -28,6 +29,11 @@ struct Title: Codable {
     let vote_count: Int
     let release_date: String?
     let vote_average: Double
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+    }
 }
 
 
