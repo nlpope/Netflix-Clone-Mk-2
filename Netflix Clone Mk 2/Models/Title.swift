@@ -16,7 +16,7 @@ struct TrendingTitleResponse: Codable {
 struct Title: Codable {
     
     //CodingKey = type that can be used as a key for encoding and decoding
-    enum CodingKeys: String, Decodable, CodingKey {
+    enum CodingKeys: String, Codable, CodingKey {
         case identifier = "id"
         
         init(from decoder: Decoder) throws {
