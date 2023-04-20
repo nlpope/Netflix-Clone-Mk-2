@@ -76,34 +76,32 @@ class HomeViewController: UIViewController {
 //            }
 //        }
         
-//        APICaller.shared.getTrendingTVs { results in
+        APICaller.shared.getTrendingTVs { results in
+            switch results {
+            case .success(let resultsCopy):
+                print("trending tvs egualez: \(resultsCopy)")
+            case .failure(let resultsCopy):
+                print("trending tvs error egualez: \(resultsCopy)")
+            }
+        }
+        
+//        APICaller.shared.getUpcomingMovies { results in
 //            switch results {
 //            case .success(let resultsCopy):
-//                print(resultsCopy)
+//                print("upcoming success egualez:\(resultsCopy)")
 //            case .failure(let resultsCopy):
-//                print("error: \(resultsCopy)")
+//                print("upcoming error egualez: \(resultsCopy)")
 //            }
 //        }
         
-        APICaller.shared.getUpcomingMovies { results in
-            switch results {
-            case .success(let resultsCopy):
-                print("success egualez:\(resultsCopy)")
-            case .failure(let resultsCopy):
-                print("error egualez: \(resultsCopy)")
-            }
-        }
-    }
-    
-    private func getTrendingTvs() {
-        APICaller.shared.getTrendingTVs { results in
-            switch results {
-            case .success(let titles):
-                print(titles)
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        APICaller.shared.getPopularMovies { results in
+//            switch results {
+//            case .success(let resultsCopy):
+//                print("pop success egualez: \(resultsCopy)")
+//            case .failure(let resultsCopy):
+//                print("pop failure egualez: \(resultsCopy)")
+//            }
+//        }
     }
 
 }
