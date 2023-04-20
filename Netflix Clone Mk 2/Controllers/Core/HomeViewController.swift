@@ -38,6 +38,8 @@ class HomeViewController: UIViewController {
         
         fetchData()
         //getTrendingTvs()
+        //testing new token
+        print("hey spidey")
     }
     
     //CREATE A UIBARBUTTONITEM W A CUSTOM VIEW (TO ADJUST THE SCALE & ALIGNMENT)
