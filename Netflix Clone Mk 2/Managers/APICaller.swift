@@ -57,6 +57,40 @@ class APICaller {
         task.resume()
     }
     
+    
+    
+    
+    
+    
+    
+    
+    //need popular and top rated - after upcoming
+    func getPopularMovies(completion: @escaping (Result<[Title], Error>) -> ()) {
+        guard let url = URL(string: "\(Constants.baseURL)/3/movie/popular?api_key=\(Constants.API_KEY)&language=en-US&page=1") else {return}
+        
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { dataReceived, _, nonDotFailureError in
+            guard let dataReceivedCopy = dataReceived, nonDotFailureError == nil else {return}
+            
+            do {
+                let decoder = JSONDecoder()
+                let finalResult = try decoder.decode(TrendingTitleResponse.self, from: dataReceivedCopy)
+                completion(.success(finalResult.results))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+        task.resume()
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     func getUpcomingMovies(completion: @escaping (Result<[Title], Error>) -> ()) {
         guard let url = URL(string: "\(Constants.baseURL)/3/movie/upcoming?api_key=\(Constants.API_KEY)&language=en-US&page=1") else {return}
         
