@@ -76,12 +76,21 @@ class HomeViewController: UIViewController {
 //            }
 //        }
         
-        APICaller.shared.getTrendingTVs { results in
+//        APICaller.shared.getTrendingTVs { results in
+//            switch results {
+//            case .success(let resultsCopy):
+//                print(resultsCopy)
+//            case .failure(let resultsCopy):
+//                print("error: \(resultsCopy)")
+//            }
+//        }
+        
+        APICaller.shared.getUpcomingMovies { results in
             switch results {
             case .success(let resultsCopy):
-                print(resultsCopy)
+                print("success egualez:\(resultsCopy)")
             case .failure(let resultsCopy):
-                print("error: \(resultsCopy)")
+                print("error egualez: \(resultsCopy)")
             }
         }
     }

@@ -23,7 +23,7 @@ class APICaller {
     
     func getTrendingMovies(completion: @escaping (Result<[Title], Error>) -> ()) {
                 
-        guard let url = URL(string: "\(Constants.baseURL)/3/trending/movie/day?api_key=\(Constants.API_KEY)") else {return}
+        guard let url = URL(string: "\(Constants.baseURL)/3/trending/movie/day?api_key=\(Constants.API_KEY)&language=en-US&page=1") else {return}
         
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { dataReceived, _, error in
             
@@ -42,7 +42,7 @@ class APICaller {
     }
     
     func getTrendingTVs(completion: @escaping (Result<[Title], Error>) -> ()) {
-        guard let url = URL(string: "\(Constants.baseURL)/3/trending/tv/day?api_key=\(Constants.API_KEY)") else {return}
+        guard let url = URL(string: "\(Constants.baseURL)/3/trending/tv/day?api_key=\(Constants.API_KEY)&language=en-US&page=1") else {return}
         
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { dataReceived, _, error in
             guard let dataReceivedCopy = dataReceived, error == nil else {return}
@@ -58,7 +58,20 @@ class APICaller {
     }
     
     func getUpcomingMovies(completion: @escaping (Result<[Title], Error>) -> ()) {
-        guard let url = URL(string: "\(Constants.baseURL)/3/trending/tv/day?api_key=\(Constants.API_KEY)") else {return}
+        guard let url = URL(string: "\(Constants.baseURL)/3/movie/upcoming?api_key=\(Constants.API_KEY)&language=en-US&page=1") else {return}
+        
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { dataReceived, _, error in
+            guard let dataReceivedCopy = dataReceived, error == nil else {return}
+            
+            do {
+                let decoder = JSONDecoder()
+                let result = try decoder.decode(TrendingTitleResponse.self, from: dataReceivedCopy)
+                completion(.success(result.results))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+        task.resume()
     }
     
 }
