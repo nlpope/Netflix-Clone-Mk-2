@@ -76,14 +76,23 @@ class HomeViewController: UIViewController {
 //            }
 //        }
         
-        APICaller.shared.getTrendingTVs { results in
-            switch results {
-            case .success(let resultsCopy):
-                print("trending tvs egualez: \(resultsCopy)")
-            case .failure(let resultsCopy):
-                print("trending tvs error egualez: \(resultsCopy)")
-            }
-        }
+//        APICaller.shared.getTrendingTVs { results in
+//            switch results {
+//            case .success(let resultsCopy):
+//                print("trending tvs egualez: \(resultsCopy)")
+//            case .failure(let resultsCopy):
+//                print("trending tvs error egualez: \(resultsCopy)")
+//            }
+//        }
+        
+//            APICaller.shared.getPopularMovies { results in
+//                switch results {
+//                case .success(let resultsCopy):
+//                    print("pop success egualez: \(resultsCopy)")
+//                case .failure(let resultsCopy):
+//                    print("pop failure egualez: \(resultsCopy)")
+//                }
+//            }
         
 //        APICaller.shared.getUpcomingMovies { results in
 //            switch results {
@@ -94,14 +103,16 @@ class HomeViewController: UIViewController {
 //            }
 //        }
         
-//        APICaller.shared.getPopularMovies { results in
-//            switch results {
-//            case .success(let resultsCopy):
-//                print("pop success egualez: \(resultsCopy)")
-//            case .failure(let resultsCopy):
-//                print("pop failure egualez: \(resultsCopy)")
-//            }
-//        }
+        APICaller.shared.getTopRatedMovies { results in
+            switch results {
+            case .success(let resultsCopy):
+                print("top rated egualez: \(resultsCopy)")
+            case .failure(let resultsCopy):
+                print("top rated error egualez: \(resultsCopy)")
+            }
+        }
+        
+
     }
 
 }
