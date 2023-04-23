@@ -21,6 +21,7 @@
 		408897EA29B26B0900FE7132 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408897E929B26B0900FE7132 /* APICaller.swift */; };
 		40ABDBAF29C492A400FAF987 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABDBAE29C492A400FAF987 /* Title.swift */; };
 		40ABDBB329DDDDAC00FAF987 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABDBB229DDDDAC00FAF987 /* Extensions.swift */; };
+		40ABDBB529F5B78A00FAF987 /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ABDBB429F5B78A00FAF987 /* TitleCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		408897E929B26B0900FE7132 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		40ABDBAE29C492A400FAF987 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		40ABDBB229DDDDAC00FAF987 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		40ABDBB429F5B78A00FAF987 /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				40879ED9299A6D18000AF314 /* CollectionViewTableViewCell.swift */,
+				40ABDBB429F5B78A00FAF987 /* TitleCollectionViewCell.swift */,
 				40879EDB299E5C08000AF314 /* HeroHeaderUIView.swift */,
 			);
 			path = Views;
@@ -226,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40879ECD299058A8000AF314 /* SearchViewController.swift in Sources */,
+				40ABDBB529F5B78A00FAF987 /* TitleCollectionViewCell.swift in Sources */,
 				40879EB8298D3CB0000AF314 /* MainTabBarViewController.swift in Sources */,
 				40879EDA299A6D18000AF314 /* CollectionViewTableViewCell.swift in Sources */,
 				408897EA29B26B0900FE7132 /* APICaller.swift in Sources */,
