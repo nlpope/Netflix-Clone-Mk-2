@@ -92,18 +92,22 @@ class APICaller {
         task.resume()
     }
     
+    
+    
+    
+    
+    
     func getTopRatedMovies(completion: @escaping (Result<[Title], Error>) -> ()) {
         guard let url = URL(string: "\(Constants.baseURL)/3/movie/top_rated?api_key=\(Constants.API_KEY)&language=en-US&page=1") else {return}
-        
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { dataReceived, _, localError in
-            guard let dataReceivedCopy = dataReceived, localError == nil else {return}
-            
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { dataReceived, _, errorReceived in
+            //decode w jsondecoder() - throws so plant in a do try catch
+            guard let dataReceivedCopy = dataReceived, errorReceived == nil else {return}
             do {
-                let decoder = JSONDecoder()
-                let finalResults = try decoder.decode(TrendingTitleResponse.self, from: dataReceivedCopy)
-                completion(.success(finalResults.results))
+                let decodedResults = try JSONDecoder().decode(TrendingTitleResponse.self, from: dataReceivedCopy)
+                completion(.success(decodedResults.results))
             } catch {
-                completion(.failure(error)) //error = type Error
+                //this error is a new definition; separate from errorReceived
+                completion(.failure(error))
             }
         }
         task.resume()
