@@ -19,10 +19,17 @@ class TitleCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        contentView.addSubview(posterImageView)
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        posterImageView.frame = contentView.bounds
     }
     
 }
