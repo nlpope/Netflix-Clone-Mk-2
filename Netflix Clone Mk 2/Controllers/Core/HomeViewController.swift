@@ -36,8 +36,7 @@ class HomeViewController: UIViewController {
         homeFeedTable.tableHeaderView = headerView
         //UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         
-        fetchData()
-        //getTrendingTvs()
+        //fetchData()
     }
     
     //CREATE A UIBARBUTTONITEM W A CUSTOM VIEW (TO ADJUST THE SCALE & ALIGNMENT)
@@ -65,55 +64,6 @@ class HomeViewController: UIViewController {
         homeFeedTable.frame = view.bounds
     }
     
-    //changed from fetchTrendingMovies()
-    private func fetchData() {
-//        APICaller.shared.getTrendingMovies { results in //holds the upper lvl ".success" & ".failure" values
-//            switch results {
-//            case .success(let resultsCopy): //titles: TrendingMovieResponse.results within ".success" value
-//                print(resultsCopy)
-//            case .failure(let resultsCopy):
-//                print(resultsCopy)
-//            }
-//        }
-        
-//        APICaller.shared.getTrendingTVs { results in
-//            switch results {
-//            case .success(let resultsCopy):
-//                print("trending tvs egualez: \(resultsCopy)")
-//            case .failure(let resultsCopy):
-//                print("trending tvs error egualez: \(resultsCopy)")
-//            }
-//        }
-        
-//            APICaller.shared.getPopularMovies { results in
-//                switch results {
-//                case .success(let resultsCopy):
-//                    print("pop success egualez: \(resultsCopy)")
-//                case .failure(let resultsCopy):
-//                    print("pop failure egualez: \(resultsCopy)")
-//                }
-//            }
-        
-//        APICaller.shared.getUpcomingMovies { results in
-//            switch results {
-//            case .success(let resultsCopy):
-//                print("upcoming success egualez:\(resultsCopy)")
-//            case .failure(let resultsCopy):
-//                print("upcoming error egualez: \(resultsCopy)")
-//            }
-//        }
-        
-        APICaller.shared.getTopRatedMovies { results in
-            switch results {
-            case .success(let resultsCopy):
-                print("top rated egualez: \(resultsCopy)")
-            case .failure(let resultsCopy):
-                print("top rated error egualez: \(resultsCopy)")
-            }
-        }
-        
-
-    }
 
 }
 
