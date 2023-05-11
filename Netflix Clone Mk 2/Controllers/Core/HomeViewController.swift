@@ -82,6 +82,62 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {return UITableViewCell()}
+        
+        switch indexPath.section {
+            
+        case Sections.TrendingMovies.rawValue:
+            APICaller.shared.getTrendingMovies { result in
+                switch result {
+                case .success(let titles):
+                    cell.configure(with: titles)
+                case .failure(let error):
+                    print("dot failure error: \(error)")
+                }
+            }
+            
+        case Sections.TrendingTv.rawValue:
+            APICaller.shared.getTrendingTVs { result in
+                switch result {
+                case .success(let titles):
+                    cell.configure(with: titles)
+                case .failure(let error):
+                    print("dot failure error: \(error)")
+                }
+            }
+            
+        case Sections.Popular.rawValue:
+            APICaller.shared.getPopularMovies { result in
+                switch result {
+                case .success(let titles):
+                    cell.configure(with: titles)
+                case .failure(let error):
+                    print("dot failure error: \(error)")
+                }
+            }
+            
+        case Sections.Upcoming.rawValue:
+            APICaller.shared.getUpcomingMovies { result in
+                switch result {
+                case .success(let titles):
+                    cell.configure(with: titles)
+                case .failure(let error):
+                    print("dot failure error: \(error)")
+                }
+            }
+        case Sections.TopRated.rawValue:
+            APICaller.shared.getTopRatedMovies { result in
+                switch result {
+                case .success(let titles):
+                    cell.configure(with: titles)
+                case .failure(let error):
+                    print("dot failure error: \(error)")
+                }
+            }
+            
+        default:
+            return UITableViewCell()
+        }
+        
         return cell
     }
     
