@@ -45,6 +45,9 @@ class CollectionViewTableViewCell: UITableViewCell {
 
     public func configure(with titles: [Title]) {
         self.titles = titles
+        DispatchQueue.main.async {[weak self] in
+            self?.collectionViewz.reloadData()
+        }
     }
 }
 
@@ -53,7 +56,7 @@ extension CollectionViewTableViewCell: UICollectionViewDataSource, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else {return UICollectionViewCell()}
         
-        guard let model = titles[indexPath.row].poster_path else {return UICollectionViewCell()}
+        guard let model = (titles[indexPath.row].poster_path) else {return UICollectionViewCell()}
         cell.configure(with: model)
         
         return cell
