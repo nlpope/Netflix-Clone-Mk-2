@@ -13,7 +13,7 @@ class CollectionViewTableViewCell: UITableViewCell {
     
     private var titles: [Title] = [Title]()
     
-    private let collectionViewz: UICollectionView = {
+    private let collectionView: UICollectionView = {
 
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 140, height: 200)
@@ -27,10 +27,10 @@ class CollectionViewTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .systemPink
-        contentView.addSubview(collectionViewz)
+        contentView.addSubview(collectionView)
         
-        collectionViewz.delegate = self
-        collectionViewz.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     //i dont get this line
@@ -40,13 +40,13 @@ class CollectionViewTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        collectionViewz.frame = contentView.bounds
+        collectionView.frame = contentView.bounds
     }
 
     public func configure(with titles: [Title]) {
         self.titles = titles
         DispatchQueue.main.async {[weak self] in
-            self?.collectionViewz.reloadData()
+            self?.collectionView.reloadData()
         }
     }
 }
