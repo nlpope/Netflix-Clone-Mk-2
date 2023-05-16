@@ -11,7 +11,8 @@ class CollectionViewTableViewCell: UITableViewCell {
 
     static let identifier = "CollectionViewTableViewCell"
     
-    private var titles: [Title] = [Title]()
+    //the below [] initializer replaces [Title]() - same output
+    private var titles: [Title] = []
     
     private let collectionView: UICollectionView = {
 
