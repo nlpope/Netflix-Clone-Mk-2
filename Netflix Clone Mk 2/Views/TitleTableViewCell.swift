@@ -11,15 +11,22 @@ class TitleTableViewCell: UITableViewCell {
     
     static let identifier = "TitleTableViewCell"
     
-    private let titlesPosterUIImageView = {
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let titlePosterUIImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier )
-        contentView.addSubview(titlesPosterUIImageView)
+        contentView.addSubview(titlePosterUIImageView)
     }
     
     required init?(coder: NSCoder) {
