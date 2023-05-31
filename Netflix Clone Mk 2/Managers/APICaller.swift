@@ -20,6 +20,7 @@ enum APIError: Error {
 
 class APICaller {
     static let shared = APICaller() //shared instance made so we can call all the below methods later
+    private init() {}
     
     func getTrendingMovies(completion: @escaping (Result<[Title], Error>) -> ()) {
                 
